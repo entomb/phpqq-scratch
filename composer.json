@@ -1,0 +1,7 @@
+{
+    "require": {
+        "slim/slim": "2.*",
+        "entomb/obj_mysql": "dev-master",
+        "entomb/slim-json-api": "dev-master"
+    }
+}
