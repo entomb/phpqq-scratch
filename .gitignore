@@ -1,4 +1,4 @@
 composer.lock
 composer.json
-installed.json
+vendor/composer/installed.json
 
