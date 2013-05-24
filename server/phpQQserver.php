@@ -127,6 +127,38 @@ Class phpQQserver {
 
     }
 
+    static function getRun($qq_server_id,$qq_run_id){
+
+        $query = DB::mysql()->query("SELECT *
+                                       FROM qq_run
+                                      WHERE qq_server_id = ?
+                                        AND qq_run_id = ?
+                                      ORDER BY qq_run_id DESC ", array($qq_server_id, $qq_run_id)
+                                    );
+
+
+        if($runObject = $query->fetch()){
+            return new phpQQrun($runObject);
+        }else{
+            return false;
+        }
+
+    }
+
+    static function getRunEvents($qq_server_id,$qq_run_id){
+
+        $query = DB::mysql()->query("SELECT *
+                                       FROM qq_run r
+                                       JOIN qq_run_event e using(qq_run_id)
+                                      WHERE r.qq_server_id = ?
+                                        AND r.qq_run_id = ?
+                                      ORDER BY qq_run_id DESC", array($qq_server_id, $qq_run_id)
+                                    );
+
+
+        return $query->fetchAll();
+    }
+
 
     static function getServers(){
         $query = DB::mysql()->query("SELECT * FROM qq_server");

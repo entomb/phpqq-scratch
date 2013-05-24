@@ -38,12 +38,12 @@
         QQadmin::call('servers');
     });
 
-    $app->get('/admin/:key(/:method)', 'HTMLrequest',function($key=0,$method="detail") use ($app){
+    $app->get('/admin/:key(/:method(/:id))', 'HTMLrequest',function($key=0,$method="detail",$id=0) use ($app){
 
         $app->view(new \Slim\View());
 
         QQadmin::$app = &$app;
-        QQadmin::call($method,$key);
+        QQadmin::call($method,$key,$id);
     });
 
 

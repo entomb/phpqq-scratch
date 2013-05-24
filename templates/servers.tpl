@@ -17,7 +17,7 @@
         <td><?=$item->server;?></td>
         <td><?=$item->api_key;?></td>
         <td>
-            <a href="/server/<?=$item->api_key;?>/detail" class="ink-button info">
+            <a href="/admin/<?=$item->api_key;?>/detail" class="ink-button info">
                 Details
             </a>
 
